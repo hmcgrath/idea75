@@ -1,73 +1,36 @@
 <!DOCTYPE html>
-<!-- saved from url=(0051)https://leafletjs.com/examples/geojson/example.html -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<!--<base target="_top">--><base href="." target="_top">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
-	<title>GoC Runoff Predictor</title>
+ <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>
+      Runoff Predictor for Fertilizer Use
+    </title>
 
-	
-	 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
-     integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
-     crossorigin=""/>
-	
- <!-- Make sure you put this AFTER Leaflet's CSS -->
- <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
-     integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
-     crossorigin=""></script>
-	 <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
-	 type="text/javascript" > </script>
-	
+	<!-- Load Leaflet from CDN -->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+	  integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+	  crossorigin=""/>
+	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+	  integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+	  crossorigin=""></script>
 
-	<style>
-		html, body {
-			height: 100%;
-			margin: 0;
-		}
-		.leaflet-container {
-			height: 600px;
-			width: 600px;
-			max-width: 100%;
-			max-height: 100%;
-		}
-	</style>
-
+	<!-- Leaflet-GeoTIFF-2 Library & Dependancies (GeoTiff.js and plotty.js)-->
+	<script src="https://unpkg.com/geotiff@1.0.0-beta.13/dist-browser/geotiff.js"></script>
+    <script src="https://unpkg.com/plotty@0.4.1/dist/plotty.js"></script>
+    <script src="https://unpkg.com/leaflet-geotiff-2@0.2.5/dist/leaflet-geotiff.js"></script>
+    <script src="https://unpkg.com/leaflet-geotiff-2@0.2.5/dist/leaflet-geotiff-plotty.js"></script>	
+	
+	<!-- Load JQuery Library (translate between Javascript and Json) -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 	
 </head>
 <body>
 
  <div id="map"></div>
-<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
-    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-	
-<script>
-
-var map = L.map('map').setView([43.505, -80.45], 6);
-
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
-
-
-var myStyle = {
-    "weight": 5,
-	"fillColor": "#ff7800",
-	"fillOpacity": 0.65
-};
-
-async function addGeoJson() {
-    const response = await fetch("https://hmcgrath.github.io/idea75/data/Small2.geojson");
-    const data = await response.json();
-    L.geoJson(data).addTo(map);
-}
-
-addGeoJson();
-
-
-
-
-</script>
+<script src="RunoffPred.js"></script>
 
 
 </body></html>
