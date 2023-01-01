@@ -1,4 +1,4 @@
-var geojsonFeature = {
+{
 "type": "FeatureCollection",
 "name": "Small2",
 "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::3857" } },
